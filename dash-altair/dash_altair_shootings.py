@@ -15,7 +15,7 @@ app.title = "Dash: Philadelphia Shootings"
 
 # load the neighborhoods
 hoods = gpd.read_file(
-    "https://raw.githubusercontent.com/MUSA-550-Fall-2020/week-13/master/data/zillow_neighborhoods.geojson"
+    "https://raw.githubusercontent.com/MUSA-550-Fall-2022/week-13/main/data/zillow_neighborhoods.geojson"
 )
 
 
