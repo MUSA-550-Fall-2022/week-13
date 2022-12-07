@@ -55,13 +55,13 @@ def make_altair_chart(data, days):
     columns = ["ZillowName", "fatal", "race", "age"]
     data = data[columns]
 
-    # brush selection on the ZIP code plot
+    # brush selection on the neighborhood plot
     brush = alt.selection(type="interval", encodings=["y"])
 
     # the base chart
     base = alt.Chart(data)
 
-    # shootings by ZIP code
+    # shootings by neighborhood
     chart1 = (
         alt.Chart(data)
         .mark_bar()
@@ -185,7 +185,7 @@ def render(days):
     homicides = (gdf.fatal == "Yes").sum()
     title = f"There have been {shootings} shootings and {homicides} homicides in the last {days} days."
 
-    # do a spatial join with ZIP codes
+    # do a spatial join with neighborhoods
     hoods.crs = gdf.crs
     joined = gpd.sjoin(gdf, hoods, how="left", predicate="within").dropna(
         subset=["ZillowName"]
