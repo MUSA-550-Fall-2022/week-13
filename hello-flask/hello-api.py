@@ -18,12 +18,6 @@ def hello(days=90, fatal=0):
     days = request.args.get("days", default=90, type=int)
     fatal = request.args.get("fatal", default=0, type=int)
 
-    # create our SQL query
-    query = (
-        "SELECT * FROM shootings WHERE date_ >= current_date - %d AND fatal = %d"
-        % (days, fatal)
-    )
-
     # Query for the data
     URL = "https://phl.carto.com/api/v2/sql"
     WHERE = f"date_ >= current_date - {days} AND fatal = {fatal}"

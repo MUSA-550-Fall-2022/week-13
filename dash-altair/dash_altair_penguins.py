@@ -87,13 +87,12 @@ app.layout = html.Div(
 )
 
 
-@app.callback(
+@app.callback(    
     dash.dependencies.Output("plot", "srcDoc"),  # output
     [
         dash.dependencies.Input("x_axis", "value"),  # input 1
         dash.dependencies.Input("y_axis", "value"),  # input 2
-    ],
-)
+    ],)
 def render(x_axis, y_axis):
 
     brush = alt.selection_interval()
